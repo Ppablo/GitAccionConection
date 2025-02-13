@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: actions-cluster-PabloG
+  name: actions-cluster-pablog
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: mysql-pvc
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   resources:
     requests:
@@ -19,7 +19,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mysql-deployment
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   replicas: 1
   selector:
@@ -51,7 +51,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: mysql-service
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   selector:
     app: mysql
@@ -64,7 +64,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: backend-deployment
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   replicas: 2
   selector:
@@ -94,7 +94,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: backend-service
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   type: LoadBalancer
   selector:
@@ -108,7 +108,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: frontend-deployment
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   replicas: 2
   selector:
@@ -129,7 +129,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: frontend-service
-  namespace: actions-cluster-PabloG
+  namespace: actions-cluster-pablog
 spec:
   type: LoadBalancer
   selector:
